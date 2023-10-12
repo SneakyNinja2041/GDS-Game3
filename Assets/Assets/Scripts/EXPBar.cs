@@ -19,7 +19,6 @@ public class EXPBar : MonoBehaviour
     private void Start()
     {
         exp = 0;
-        SetExp(exp);
     }
 
     void Update()
@@ -41,15 +40,10 @@ public class EXPBar : MonoBehaviour
         slider.maxValue = maxExp;
     }
 
-    public void SetExp(int exp)
-    {
-        slider.value = exp;
-    }
-
-    public void TestEXP()
+    public void ExpUp()
     {
         exp += 2;
-        SetExp(exp);
+        slider.value = exp;
     }
 
 }

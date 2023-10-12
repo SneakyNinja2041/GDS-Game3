@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Training : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject prefab;
+    public float spawnDelay;
+    private float currentSpawnDelay;
+
+
     void Start()
     {
-        
+        currentSpawnDelay = spawnDelay;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+         currentSpawnDelay -= Time.deltaTime;
+         if (currentSpawnDelay < 0)
+         {
+             currentSpawnDelay = spawnDelay;
+             var randomPosition = Random.Range(-10f, 10f);
+             Instantiate(prefab, new Vector3(randomPosition, 13, 0), Quaternion.identity);
+
+         }
     }
 }

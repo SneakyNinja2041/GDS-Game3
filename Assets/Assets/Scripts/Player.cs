@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
     private void HandleFingerDown(Finger TouchedFinger)
     {
-        if (MovementFinger == null && TouchedFinger.screenPosition.x <= Screen.width / 2f)
+        if (MovementFinger == null && TouchedFinger.screenPosition.x <= Screen.width / 3f)
         {
             MovementFinger = TouchedFinger;
             MovementAmount = Vector2.zero;
