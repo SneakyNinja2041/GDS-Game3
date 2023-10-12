@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EXPBar : MonoBehaviour
 {
-    public int currentExp = 0;
+    public int exp;
     public int maxExp = 10;
 
     public Slider slider;
@@ -18,27 +18,38 @@ public class EXPBar : MonoBehaviour
 
     private void Start()
     {
-        currentExp = 0;
-        slider.value = currentExp;
+        exp = 0;
+        SetExp(exp);
     }
 
     void Update()
     {
-        if (currentExp == maxExp)
+        if (exp == maxExp)
         {
-            currentExp = 0;
+            exp = 0;
             level++;
         }
 
 
         levelText.text = "Level: " + level;
-        
+
+    }
+
+    public void SetMaxExp(int exp)
+    {
+        slider.value = exp;
+        slider.maxValue = maxExp;
+    }
+
+    public void SetExp(int exp)
+    {
+        slider.value = exp;
     }
 
     public void TestEXP()
     {
-        currentExp++;
-        slider.value = currentExp;
+        exp += 2;
+        SetExp(exp);
     }
 
 }
