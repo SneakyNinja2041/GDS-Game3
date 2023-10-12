@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
         {
             exp.ExpUp();
 
-            money++;
+            money += 2;
         }
 
     }

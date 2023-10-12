@@ -20,7 +20,7 @@ public class Training : MonoBehaviour
          if (currentSpawnDelay < 0)
          {
              currentSpawnDelay = spawnDelay;
-             var randomPosition = Random.Range(-10f, 10f);
+             var randomPosition = Random.Range(-8f, 8f);
              Instantiate(prefab, new Vector3(randomPosition, 13, 0), Quaternion.identity);
 
          }

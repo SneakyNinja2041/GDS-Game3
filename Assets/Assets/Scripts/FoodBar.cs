@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FoodBar : MonoBehaviour
 {
@@ -14,9 +15,14 @@ public class FoodBar : MonoBehaviour
 
     public float timer;
 
+    public int food;
+    public int startFood = 0;
+    public TextMeshProUGUI foodText;
+
     void Awake()
     {
         gameTime = startTime;
+        food = startFood;
     }
 
     void Start()
@@ -43,18 +49,28 @@ public class FoodBar : MonoBehaviour
             Time.timeScale = 0f;
         }
 
+        foodText.text = "Food: " + food.ToString();
+
     }
 
-    public void LoadScene()
+    public void Feed()
     {
-        Time.timeScale = 1f;
-        gameTime = startTime;
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        if (food >= 1)
+        {
+            food--;
+            timer = gameTime += 20;
+        }
     }
 
-    public void TimerUp()
+    public void BuyFood()
     {
-        timer = gameTime += 20;
+        if (PlayerStats.money >= 10)
+        {
+            PlayerStats.money -= 10;
+            food++;
+        }
+
     }
+
+
 }

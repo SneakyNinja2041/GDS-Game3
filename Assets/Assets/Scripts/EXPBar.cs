@@ -16,6 +16,8 @@ public class EXPBar : MonoBehaviour
     public TextMeshProUGUI levelText;
 
 
+
+
     private void Start()
     {
         exp = 0;
