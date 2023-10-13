@@ -58,7 +58,7 @@ public class FoodBar : MonoBehaviour
         if (food >= 1)
         {
             food--;
-            timer = gameTime += 20;
+            timer = gameTime += 30;
         }
     }
 
